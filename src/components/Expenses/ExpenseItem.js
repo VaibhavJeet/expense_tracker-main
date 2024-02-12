@@ -4,9 +4,18 @@ import ExpenseDate from './ExpenseDate';
 import { useState } from 'react';
 
 const ExpenseItem = (props) => {
+    const [title, setTitle] = useState(props.title);
+    const [amount,setAmount] = useState(props.amount);
+    console.log('hi');
 
+    const amountHandler = () => {
+        setAmount('100$');
+    }
+    //let title = props.title;
     const clickHandler = () => {
-        console.log('deleted');
+        //title = 'Updated';
+        setTitle('Updated');
+        console.log(title);  
     };
 
     return (
@@ -14,10 +23,11 @@ const ExpenseItem = (props) => {
         <div className='expense-item'>
             <ExpenseDate date={props.date}/>
             <div className='expense-item__description'>
-                <h2>{props.title}</h2>
-                <div className='expense-item__price'>${props.amount}</div>
+                <h2>{title}</h2>
+                <div className='expense-item__price'>{amount}</div>
                 <div>{props.location}</div>
-                <button onClick={clickHandler}>Delete Title</button>
+                <button onClick={clickHandler}>Update Title</button>
+                <button onClick={amountHandler}>Update Amount</button>
             </div>
         </div>
        </> 
