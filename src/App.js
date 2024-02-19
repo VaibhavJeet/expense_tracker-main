@@ -25,9 +25,19 @@ const App = () => {
       date: new Date(2021, 5, 12),
     },
   ];
-  const addExpenseHandler = (expense) => {
+
+  const addExpenseHandler = expense => {
+    console.log('In App.js');
     console.log(expense);
-  }
+  };
+
+  // return React.createElement(
+  //   'div',
+  //   {},
+  //   React.createElement('h2', {}, "Let's get started!"),
+  //   React.createElement(Expenses, { items: expenses })
+  // );
+
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
